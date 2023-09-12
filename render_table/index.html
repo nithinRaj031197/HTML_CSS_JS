@@ -1,0 +1,331 @@
+<!-- Write a JS program that renders a dynamic table using the values of the object provided.
+
+Your task is to implement a function, renderTable, that takes an array of data objects as input
+and dynamically renders the table rows based on the visible portion of the viewport.
+The table should display only a limited number of rows at a time, determined by the height of the viewport.
+
+Please follow the comments provided in the boilerplate code for further assistance with the steps.
+
+Example:
+
+Input:
+const initialData = [
+{ id: 1, name: 'John Doe', age: 25 },
+{ id: 2, name: 'Jane Smith', age: 30 },
+{ id: 3, name: 'Bob Johnson', age: 35 },
+];
+renderTable(initialData); -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <style>
+      table,
+      td {
+        border: solid 2px black;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table id="tableBody"></table>
+
+    <script id="solution" defer>
+      function renderTable(data) {
+        const tableBody = document.getElementById("tableBody");
+        const viewportHeight = window.innerHeight;
+        const tableRowHeight = 30; // Assuming each table row has a fixed height of 30 pixels
+
+        // Calculate the number of rows that can fit in the viewport
+        const visibleRowCount = Math.floor(viewportHeight / tableRowHeight); //632 // 30 => 21
+
+        // Determine the start and end indices of the visible rows
+        const startIndex = Math.floor(window.scrollY / tableRowHeight); // 0 / 30 = 0
+        const endIndex = startIndex + visibleRowCount; // 0 + 21 => 21
+
+        // Clear the table body
+        tableBody.innerHTML = "";
+
+        // Render the visible rows in the table
+        for (let i = startIndex; i < endIndex; i++) {
+          if (i >= 0 && i < data.length) {
+            const rowData = data[i];
+
+            // Create a new table row element
+            const row = document.createElement("tr");
+
+            for (let d in rowData) {
+              const cell = document.createElement("td");
+              cell.textContent = rowData[d];
+              row.appendChild(cell);
+            }
+
+            // Append the table row to the table body
+            tableBody.appendChild(row);
+          }
+        }
+      }
+    </script>
+    <script defer>
+      // Call the renderTable function with the initial dataset
+      const initialData = [
+        {
+          id: 1,
+          name: "John Doe",
+          age: 25,
+        },
+        {
+          id: 2,
+          name: "Jane Smith",
+          age: 30,
+        },
+        {
+          id: 3,
+          name: "Bob Johnson",
+          age: 35,
+        },
+        {
+          id: 4,
+          name: "Alice Brown",
+          age: 28,
+        },
+        {
+          id: 5,
+          name: "Michael Davis",
+          age: 22,
+        },
+        {
+          id: 6,
+          name: "Emily Miller",
+          age: 29,
+        },
+        {
+          id: 7,
+          name: "Daniel Wilson",
+          age: 33,
+        },
+        {
+          id: 8,
+          name: "Olivia Garcia",
+          age: 27,
+        },
+        {
+          id: 9,
+          name: "William Martinez",
+          age: 40,
+        },
+        {
+          id: 10,
+          name: "Sophia Anderson",
+          age: 26,
+        },
+        {
+          id: 11,
+          name: "Liam Taylor",
+          age: 31,
+        },
+        {
+          id: 12,
+          name: "Ava White",
+          age: 24,
+        },
+        {
+          id: 13,
+          name: "Noah Harris",
+          age: 37,
+        },
+        {
+          id: 14,
+          name: "Isabella Lewis",
+          age: 28,
+        },
+        {
+          id: 15,
+          name: "James Turner",
+          age: 32,
+        },
+        {
+          id: 16,
+          name: "Mia Clark",
+          age: 29,
+        },
+        {
+          id: 17,
+          name: "Benjamin Hill",
+          age: 34,
+        },
+        {
+          id: 18,
+          name: "Ella Scott",
+          age: 23,
+        },
+        {
+          id: 19,
+          name: "Alexander Green",
+          age: 39,
+        },
+        {
+          id: 20,
+          name: "Scarlett Adams",
+          age: 27,
+        },
+        {
+          id: 21,
+          name: "Henry Young",
+          age: 30,
+        },
+        {
+          id: 22,
+          name: "Grace Martinez",
+          age: 26,
+        },
+        {
+          id: 23,
+          name: "Jackson Allen",
+          age: 33,
+        },
+        {
+          id: 24,
+          name: "Chloe Lee",
+          age: 29,
+        },
+        {
+          id: 25,
+          name: "Sebastian Wright",
+          age: 36,
+        },
+        {
+          id: 26,
+          name: "Lily King",
+          age: 31,
+        },
+        {
+          id: 27,
+          name: "Aiden Brown",
+          age: 25,
+        },
+        {
+          id: 28,
+          name: "Zoe Perez",
+          age: 28,
+        },
+        {
+          id: 29,
+          name: "Carter Moore",
+          age: 32,
+        },
+        {
+          id: 30,
+          name: "Layla Turner",
+          age: 27,
+        },
+        {
+          id: 31,
+          name: "Gabriel Harris",
+          age: 29,
+        },
+        {
+          id: 32,
+          name: "Mila Jackson",
+          age: 34,
+        },
+        {
+          id: 33,
+          name: "Ryan Taylor",
+          age: 26,
+        },
+        {
+          id: 34,
+          name: "Avery Young",
+          age: 31,
+        },
+        {
+          id: 35,
+          name: "Evelyn Martinez",
+          age: 28,
+        },
+        {
+          id: 36,
+          name: "Owen Allen",
+          age: 33,
+        },
+        {
+          id: 37,
+          name: "Amelia White",
+          age: 24,
+        },
+        {
+          id: 38,
+          name: "Daniel Walker",
+          age: 35,
+        },
+        {
+          id: 39,
+          name: "Sofia Lewis",
+          age: 30,
+        },
+        {
+          id: 40,
+          name: "Matthew Turner",
+          age: 29,
+        },
+        {
+          id: 41,
+          name: "Harper Hall",
+          age: 27,
+        },
+        {
+          id: 42,
+          name: "Josephine Clark",
+          age: 26,
+        },
+        {
+          id: 43,
+          name: "David Baker",
+          age: 38,
+        },
+        {
+          id: 44,
+          name: "Nora Foster",
+          age: 25,
+        },
+        {
+          id: 45,
+          name: "Logan Hayes",
+          age: 31,
+        },
+        {
+          id: 46,
+          name: "Addison Hill",
+          age: 28,
+        },
+        {
+          id: 47,
+          name: "Samuel King",
+          age: 34,
+        },
+        {
+          id: 48,
+          name: "Ella Cook",
+          age: 27,
+        },
+        {
+          id: 49,
+          name: "Lucas Roberts",
+          age: 30,
+        },
+        {
+          id: 50,
+          name: "Aria Martinez",
+          age: 26,
+        },
+      ];
+
+      renderTable(initialData);
+    </script>
+  </body>
+</html>

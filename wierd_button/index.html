@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="doubleHolder">
+      <button class="double">double</button>
+    </div>
+
+    <script>
+      const doubleHolderElement = document.getElementById("doubleHolder");
+
+      doubleHolderElement.addEventListener("click", () => {
+        const newButtonElement = document.createElement("button");
+        // newButtonElement.classList.add("double");
+        newButtonElement.textContent = "double";
+        doubleHolderElement.appendChild(newButtonElement);
+      });
+    </script>
+  </body>
+</html>

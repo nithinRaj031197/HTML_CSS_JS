@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Management App</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="inputs" class="inputs">
+        <input class="input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="input" type="text" inputmode="numeric" maxlength="1" />
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<!--
+
+    In the Document, you have div#inputs that contain 4 input fields with 'input' class.
+Here is how these inputs should work:
+1. Each of the fields only takes a single-digit number as input.
+2. When a number is entered, the focus moves to the next input field.
+3. Pressing Backspace or Delete key removes the input of the current field, and the focus moves to the previous field.
+
+You can utilise methods like isNan(value), Element.focus(), Element.nextElementSibling and Element.previousElementSibling to make the above-mentioned features work.
+
+Use the above information to write the entire JS program in the script.js file or script tag.
+Refer to the test cases to further understand the criteria to submit the problem successfully.
+
+NOTE:
+HTML and CSS are handled for you, please don't change the structure of the document.
+-->
